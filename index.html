@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assistente IA</title>
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <header>
+        <h1>&#x1F916 Assitente de IA</h1>
+       <div>
+            <input type="password" name="key" id="ikey" placeholder="Insira sua API Key aqui" required><label for="ikey">OpenAI API Key:</label>
+            <label for="modelo">Modelo:</label>
+            <select name="modelo" id="modelo">
+            <option value="gpt4.1nano">GPT-4.1 Nano</option>
+            <option value="gpt4o">GPT-4o</option>
+            <option value="gpt35">GPT-3.5</option>
+            </select>
+       </div>
+    </header>
+     <main>
+     <div>
+        <form action="#" method="post">
+        <label for="pergunta">Faça sua pergunta:</label><br>
+  
+        <textarea 
+        id="pergunta" 
+        name="pergunta" 
+        placeholder="Digite sua pergunta aqui..." 
+        rows="4" 
+        cols="50" 
+        required>
+        </textarea>
+    
+    <button type="submit">Perguntar</button>
+        </form>
+     </div>
+    </main>
+    <footer>
+        <h3>Grupo Mentes que Movem &#x1F9E0 &#x1F680 </h3>
+    </footer>
+    
+</body>
+</html>
