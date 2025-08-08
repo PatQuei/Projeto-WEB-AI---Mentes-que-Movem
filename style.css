@@ -1,0 +1,103 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Corpo da página */
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: #f4f6f8;
+  color: #333;
+  line-height: 1.5;
+}
+
+/* Centraliza todo o conteúdo principal */
+.container,
+.container2 {
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 20px;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+  text-align: center;
+}
+
+/* Imagem do robô */
+.robo {
+  display: block;
+  margin: 0 auto 15px;
+  max-width: 120px;
+  height: auto;
+  border-radius: 0%;
+}
+
+/* Título */
+h1 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #222;
+}
+
+/* Labels */
+label {
+  font-weight: 600;
+  margin-right: 8px;
+}
+
+/* Inputs e selects */
+input[type="password"],
+select,
+textarea,{
+  width: 100%;
+  max-width: 400px;
+  padding: 10px;
+  margin: 10px 0 20px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 1rem;
+}
+
+/* Botão */
+button {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+button:hover {
+  background-color: #45a049;
+}
+
+/* Área do formulário */
+textarea {
+  resize: none;
+}
+
+/* Rodapé */
+footer {
+  margin-top: 20px;
+  padding: 15px;
+  text-align: center;
+  color: #666;
+  font-size: 0.9rem;
+}
+
+/* Responsividade */
+@media (max-width: 600px) {
+  h1 {
+    font-size: 1.5rem;
+  }
+
+  input,
+  select,
+  textarea {
+    max-width: 100%;
+  }
+}
