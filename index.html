@@ -11,8 +11,10 @@
     <header class = "container">
         <h1>&#x1F916 Assitente de IA</h1>
        <div>
+
             <input type="password" name="key" id="ikey" placeholder="Insira sua API Key aqui" required>
-            <label for="ikey">Gemini API Key:</label>
+            <label for="ikey">Gemini API Key:</label> 
+            <!-- Adicionar br para pular a linha e trocar Gemini API Key: para cima do input -->
             <label for="modelo">Modelo:</label>
             <select name="modelo" id="modelo">
             <option value="gemini-1.5-pro">Gemini 1.5 Pro</option>
@@ -36,7 +38,9 @@
         cols="50" 
         required>
         </textarea>
-        <p 
+
+        <!-- Adicionar uma caixa para a resposta -->
+    <p 
         id="resposta" 
         name="resposta" 
         placeholder="Resposta da IA aparecerá aqui..."
