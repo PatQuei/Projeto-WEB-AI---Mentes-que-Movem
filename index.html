@@ -8,19 +8,21 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header>
+    <header class = "container">
         <h1>&#x1F916 Assitente de IA</h1>
        <div>
-            <input type="password" name="key" id="ikey" placeholder="Insira sua API Key aqui" required><label for="ikey">OpenAI API Key:</label>
+            <input type="password" name="key" id="ikey" placeholder="Insira sua API Key aqui" required><label for="ikey">Gemini API Key:</label>
             <label for="modelo">Modelo:</label>
             <select name="modelo" id="modelo">
-            <option value="gpt4.1nano">GPT-4.1 Nano</option>
-            <option value="gpt4o">GPT-4o</option>
-            <option value="gpt35">GPT-3.5</option>
+            <option value="gemini-1.5-pro">Gemini 1.5 Pro</option>
+            <option value="gemini-1.5-flash">Gemini 1.5 Flash</option>
+            <option value="gemini-1.5-flash-8k">Gemini 1.5 Flash 8k</option>
+            <option value="gemini-1.5-flash-128k">Gemini 1.5 Flash 128k</option>
+            <option value="gemini-1.5-flash-256k">Gemini 1.5 Flash 256k</option>
             </select>
        </div>
     </header>
-     <main>
+     <main class="container">
      <div>
         <form action="#" method="post">
         <label for="pergunta">Faça sua pergunta:</label><br>
@@ -38,7 +40,7 @@
         </form>
      </div>
     </main>
-    <footer>
+    <footer class="container">
         <h3>Grupo Mentes que Movem &#x1F9E0</h3>
     </footer>
     <script src="script.js"></script>
