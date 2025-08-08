@@ -45,6 +45,10 @@ const URL_FINAL = `${URL_BASE}?key=${apiKey}`;
         const dadosDaIA = await resposta.json();
         const textoResposta = dadosDaIA.candidates[0].content.parts[0].text;
         console.log(textoResposta);
+        let respostaDiv = document.getElementById('resposta');
+        respostaDiv.innerHTML = `<p>${textoResposta}</p>`;
+
+        
     } catch(error) {
         console.error('Ocorreu um erro', error);
     }

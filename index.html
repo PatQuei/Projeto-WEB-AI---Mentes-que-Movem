@@ -11,7 +11,8 @@
     <header class = "container">
         <h1>&#x1F916 Assitente de IA</h1>
        <div>
-            <input type="password" name="key" id="ikey" placeholder="Insira sua API Key aqui" required><label for="ikey">Gemini API Key:</label>
+            <input type="password" name="key" id="ikey" placeholder="Insira sua API Key aqui" required>
+            <label for="ikey">Gemini API Key:</label>
             <label for="modelo">Modelo:</label>
             <select name="modelo" id="modelo">
             <option value="gemini-1.5-pro">Gemini 1.5 Pro</option>
@@ -35,6 +36,14 @@
         cols="50" 
         required>
         </textarea>
+        <p 
+        id="resposta" 
+        name="resposta" 
+        placeholder="Resposta da IA aparecerá aqui..."
+        rows="4" 
+        cols="50" 
+        required>
+    </p>
     
     <button type="submit">Perguntar</button>
         </form>
