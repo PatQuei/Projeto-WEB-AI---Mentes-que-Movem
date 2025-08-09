@@ -21,7 +21,7 @@ Aqui estão os membros do nosso time. Juntos, estamos movendo mentes e criando s
 
 ## O Projeto
 
-### Assistente de IA com API Gemini
+### Assistente de IA com API Gemini 🤖
 
 * **Descrição:**  
   Uma aplicação web que permite ao usuário fazer perguntas e receber respostas geradas por inteligência artificial utilizando a API Gemini da Google. A interface apresenta um chat com histórico das perguntas e respostas.
