@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const form = document.querySelector('form');
     const apiKeyInput = document.getElementById('ikey');
     const perguntaInput = document.getElementById('pergunta');
-    const chatOutput = document.getElementById('chat-output');
+    //const chatOutput = document.getElementById('chat-output');
 
     form.addEventListener('submit', async (event) => {
         event.preventDefault();
