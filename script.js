@@ -1,3 +1,4 @@
+
 document.addEventListener("DOMContentLoaded", () => {
   const form = document.querySelector("form");
   const apiKeyInput = document.getElementById("ikey");
@@ -29,6 +30,36 @@ document.addEventListener("DOMContentLoaded", () => {
     // Limpa input
     perguntaInput.value = "";
   });
+=======
+document.addEventListener('DOMContentLoaded', () => {
+    const form = document.querySelector('form');
+    const apiKeyInput = document.getElementById('ikey');
+    const perguntaInput = document.getElementById('pergunta');
+    //const chatOutput = document.getElementById('chat-output');
+
+    form.addEventListener('submit', async (event) => {
+        event.preventDefault();
+        const apiKey = apiKeyInput.value.trim();
+        const pergunta = perguntaInput.value.trim();
+
+        if (!apiKey || !pergunta) {
+            alert('Por favor, preencha todos os campos.');
+            return;
+        }
+
+        // Adiciona mensagem do usuário no chat
+        adicionarMensagem(pergunta, "usuario");
+
+        // Adiciona "Pensando..." como placeholder
+        const iaMsgElemento = adicionarMensagem("Pensando...", "ia");
+
+        // Faz requisição para IA
+        await requisicaoAPI(apiKey, pergunta, iaMsgElemento);
+
+        // Limpa input
+        perguntaInput.value = "";
+    });
+
 });
 
 /**
