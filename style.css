@@ -1,11 +1,11 @@
+/* Reset básico */
 * {
   margin: 0;
-  padding: 0px;
+  padding: 0;
   box-sizing: border-box;
-
 }
 
-/* Corpo da página */
+/* Corpo */
 body {
   font-family: 'Poppins', sans-serif;
   background-color: #f4f6f8;
@@ -13,9 +13,8 @@ body {
   line-height: 1.5;
 }
 
-/* Centraliza todo o conteúdo principal */
-.container,
-.container2 {
+/* Containers */
+.container {
   max-width: 800px;
   margin: 20px auto;
   padding: 20px;
@@ -25,43 +24,101 @@ body {
   text-align: center;
 }
 
-/* Imagem do robô */
-.robo {
-  display: block;
-  margin: 0 auto 15px;
-  max-width: 120px;
-  height: auto;
-  border-radius: 0%;
+/* Chat */
+.chat-output {
+  width: 100%;
+  margin: 20px auto;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  max-height: 400px;
+  overflow-y: auto;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
 }
 
-/* Título */
-h1 {
-  font-size: 2rem;
-  margin-bottom: 20px;
-  color: #222;
+/* Mensagem da IA */
+.mensagem-ia {
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 12px;
+  text-align: left;
+  white-space: pre-line;
+  font-size: 1rem;
+  max-width: 80%;
+  align-self: flex-start;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+  position: relative;
 }
 
-/* Labels */
-label {
-  font-weight: 600;
-  margin-right: 8px;
+/* Botões de interação */
+.botoes-interacao {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  margin-bottom: 8px;
 }
 
-/* Inputs e selects */
+.botoes-interacao button {
+  background-color: transparent;
+  border: none;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.botoes-interacao button:hover {
+  transform: scale(1.2);
+}
+
+/* Mensagem do usuário */
+.mensagem-usuario {
+  background-color: #03A9F4; /* azul claro moderno */
+  color: white;
+  border-radius: 10px;
+  padding: 12px;
+  text-align: left;
+  white-space: pre-line;
+  font-size: 1rem;
+  max-width: 80%;
+  align-self: flex-end;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+/* Contêiner da pergunta */
+.pergunta-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+/* Inputs */
 input[type="password"],
 select,
-textarea{
+textarea {
   width: 100%;
   max-width: 400px;
   padding: 10px;
-  margin: 10px 0 20px;
-  border: 1px solid #ccc;
+  border: 2px solid #90caf9;
   border-radius: 6px;
   font-size: 1rem;
+  background-color: #ffffff;
+  color: #1a237e;
+}
+
+/* Placeholder do textarea */
+textarea::placeholder {
+  color: #999;
 }
 
 /* Botão */
 button {
+  width: 100%;
+  max-width: 400px;
   background-color: #4CAF50;
   color: white;
   border: none;
@@ -71,34 +128,12 @@ button {
   cursor: pointer;
   transition: background 0.3s ease;
 }
-
 button:hover {
   background-color: #45a049;
 }
 
-/* Área do formulário */
-textarea {
-  resize: none;
-}
-
-/* Rodapé */
-footer {
-  margin-top: 20px;
-  padding: 15px;
-  text-align: center;
-  color: #666;
-  font-size: 0.9rem;
-}
-
 /* Responsividade */
 @media (max-width: 600px) {
-  h1 {
-    font-size: 1.5rem;
-  }
-
-  input,
-  select,
-  textarea {
-    max-width: 100%;
-  }
+  h1 { font-size: 1.5rem; }
+  input, select, textarea, button { max-width: 100%; }
 }
