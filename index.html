@@ -16,8 +16,8 @@
   <body>
     <header class="container">
       <h1>🤖 Assistente de IA</h1>
-      <div>
-        <label for="ikey">Gemini API Key:</label><br />
+      <div class="assistent">
+        <label for="ikey">Gemini API Key:</label>
         <input
           type="password"
           name="key"
@@ -26,7 +26,7 @@
           required
         />
 
-        <label for="modelo">Modelo:</label><br />
+        <label for="modelo">Modelo:</label>
         <select name="modelo" id="modelo">
           <option value="gemini-1.5-pro">Gemini 1.5 Pro</option>
           <option value="gemini-1.5-flash">Gemini 1.5 Flash</option>
@@ -39,7 +39,6 @@
 
     <main class="container">
       <div class="chat-output" id="chat-output"></div>
-
       <form id="chat-form">
         <label for="pergunta">Faça sua pergunta:</label>
         <textarea
