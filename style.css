@@ -89,6 +89,9 @@ body {
 .botoes-interacao button:hover {
   transform: scale(1.2);
 }
+.hidden {
+  display: none;
+}
 
 /* Mensagem do usuário */
 .mensagem-usuario {

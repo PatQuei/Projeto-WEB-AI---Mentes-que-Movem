@@ -28,6 +28,7 @@
 
         <label for="modelo">Modelo:</label>
         <select name="modelo" id="modelo">
+          <option value="">selecione um modelo</option>
           <option value="gemini-1.5-pro">Gemini 1.5 Pro</option>
           <option value="gemini-1.5-flash">Gemini 1.5 Flash</option>
           <option value="gemini-1.5-flash-8k">Gemini 1.5 Flash 8k</option>
@@ -38,7 +39,7 @@
     </header>
 
     <main class="container">
-      <div class="chat-output" id="chat-output"></div>
+      <div class="chat-output hidden" id="chat-output"></div>
       <form id="chat-form">
         <label for="pergunta">Faça sua pergunta:</label>
         <textarea
