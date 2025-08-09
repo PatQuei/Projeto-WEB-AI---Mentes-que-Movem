@@ -6,7 +6,7 @@ Bem vindo ao terceiro projeto do grupo **Mentes que Movem**!
 
 Este repositório é um espaço colaborativo onde estamos aplicando os conhecimentos, este é um projeto web que implementa um assistente virtual usando a API Gemini da Google para geração de texto. Ele permite que o usuário faça perguntas e receba respostas geradas pela inteligência artificial.
 
-![Luzes piscando](https://media2.giphy.com/media/v1.gitY2lkPTc5MGI3NjExNmozZG5ueDBtbm0wYmF3eWR0MnBoeDVzbG9uMWd4NDNncnBjZWZsMSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/FNvsy80b2uOOhuH7lR/giphy.gif)
+![Gif mostrando o como funciona a aplicação](https://media2.giphy.com/media/v1.gitY2lkPTc5MGI3NjExNmozZG5ueDBtbm0wYmF3eWR0MnBoeDVzbG9uMWd4NDNncnBjZWZsMSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/FNvsy80b2uOOhuH7lR/giphy.gif)
 
 ## O Grupo
 
