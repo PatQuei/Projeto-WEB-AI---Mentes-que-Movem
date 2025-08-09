@@ -1,56 +1,62 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-    <img src="icons/java.svg" class="icone" style="top:10%; left:5%;">
-<img src="icons/css.svg" class="icone" style="top:40%; left:80%;">
-<img src="icons/python.svg" class="icone" style="top:70%; left:20%;">
-<img src="icons/cloud.svg" class="icone" style="top:20%; left:60%;">
-<img src="icons/html.svg" class="icone" style="top:85%; left:75%;">
+  <img src="icons/java.svg" class="icone" style="top: 10%; left: 5%" />
+  <img src="icons/css.svg" class="icone" style="top: 40%; left: 80%" />
+  <img src="icons/python.svg" class="icone" style="top: 70%; left: 20%" />
+  <img src="icons/cloud.svg" class="icone" style="top: 20%; left: 60%" />
+  <img src="icons/html.svg" class="icone" style="top: 85%; left: 75%" />
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Assistente IA</title>
-    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
     <header class="container">
-        <h1>🤖 Assistente de IA</h1>
-        <div>
-            <label for="ikey">Gemini API Key:</label>
-            <input type="password" name="key" id="ikey" placeholder="Insira sua API Key aqui" required>
+      <h1>🤖 Assistente de IA</h1>
+      <div>
+        <label for="ikey">Gemini API Key:</label><br />
+        <input
+          type="password"
+          name="key"
+          id="ikey"
+          placeholder="Insira sua API Key aqui"
+          required
+        />
 
-            <label for="modelo">Modelo:</label>
-            <select name="modelo" id="modelo">
-                <option value="gemini-1.5-pro">Gemini 1.5 Pro</option>
-                <option value="gemini-1.5-flash">Gemini 1.5 Flash</option>
-                <option value="gemini-1.5-flash-8k">Gemini 1.5 Flash 8k</option>
-                <option value="gemini-1.5-flash-128k">Gemini 1.5 Flash 128k</option>
-                <option value="gemini-1.5-flash-256k">Gemini 1.5 Flash 256k</option>
-            </select>
-        </div>
+        <label for="modelo">Modelo:</label><br />
+        <select name="modelo" id="modelo">
+          <option value="gemini-1.5-pro">Gemini 1.5 Pro</option>
+          <option value="gemini-1.5-flash">Gemini 1.5 Flash</option>
+          <option value="gemini-1.5-flash-8k">Gemini 1.5 Flash 8k</option>
+          <option value="gemini-1.5-flash-128k">Gemini 1.5 Flash 128k</option>
+          <option value="gemini-1.5-flash-256k">Gemini 1.5 Flash 256k</option>
+        </select>
+      </div>
     </header>
 
     <main class="container">
-        <div class="chat-output" id="chat-output"></div>
+      <div class="chat-output" id="chat-output"></div>
 
-        <form id="chat-form">
-            <label for="pergunta">Faça sua pergunta:</label>
-            <textarea 
-                id="pergunta" 
-                name="pergunta" 
-                placeholder="Digite sua pergunta aqui..." 
-                rows="4" 
-                required
-            ></textarea>
-            <button type="submit">Perguntar</button>
-        </form>
+      <form id="chat-form">
+        <label for="pergunta">Faça sua pergunta:</label>
+        <textarea
+          id="pergunta"
+          name="pergunta"
+          placeholder="Digite sua pergunta aqui..."
+          rows="4"
+          required
+        ></textarea>
+        <button type="submit">Perguntar</button>
+      </form>
     </main>
 
     <footer class="container">
-        <h3>Grupo Mentes que Movem 🧠</h3>
+      <h3>Grupo Mentes que Movem 🧠</h3>
     </footer>
 
     <script src="script.js"></script>
-</body>
+  </body>
 </html>
