@@ -123,6 +123,24 @@ body {
   margin-top: 20px;
 }
 
+/* Botão de copiar */
+.copy-btn {
+  background-color: #a3a3a3;
+    color: white;
+    border: none;
+    padding: 6px 16px;
+    font-size: 1rem;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    height: 30px;
+    width: fit-content;
+    margin-top: 8px;
+}
+.copy-btn:hover {
+  background-color: #838383;
+}
+
 /* Inputs */
 input[type="password"],
 select,
