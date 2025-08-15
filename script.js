@@ -1,8 +1,10 @@
+
 document.addEventListener("DOMContentLoaded", () => {
   const form = document.querySelector("form");
   const apiKeyInput = document.getElementById("ikey");
   const perguntaInput = document.getElementById("pergunta");
   const chatOutput = document.getElementById("chat-output");
+  const cleanChat = document.getElementById("clean");
 
   form.addEventListener("submit", async (event) => {
     event.preventDefault();
@@ -102,4 +104,22 @@ async function requisicaoAPI(apiKey, prompt, { container, element }) {
     console.error("Erro na API:", error);
     element.textContent = "❌ Erro na conexão com a API.";
   }
+}
+
+/**
+ * Adiciona mensagem ao chat
+ */
+function adicionarMensagem(texto, tipo) {
+  const chatOutput = document.getElementById("chat-output");
+  const msg = document.createElement("div");
+
+  msg.classList.add(tipo === "usuario" ? "mensagem-usuario" : "mensagem-ia");
+  msg.textContent = texto;
+
+  chatOutput.appendChild(msg);
+
+  // Rola para o final do chat
+  chatOutput.scrollTop = chatOutput.scrollHeight;
+
+  return msg;
 }
