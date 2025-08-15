@@ -1,9 +1,10 @@
 
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded"), () => {
   const form = document.querySelector("form");
   const apiKeyInput = document.getElementById("ikey");
   const perguntaInput = document.getElementById("pergunta");
   const chatOutput = document.getElementById("chat-output");
+  const cleanChat = document.getElementById("clean");
 
   form.addEventListener("submit", async (event) => {
     event.preventDefault();
@@ -30,7 +31,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // Limpa input
     perguntaInput.value = "";
   });
-=======
+};
 document.addEventListener('DOMContentLoaded', () => {
     const form = document.querySelector('form');
     const apiKeyInput = document.getElementById('ikey');
@@ -60,6 +61,13 @@ document.addEventListener('DOMContentLoaded', () => {
         perguntaInput.value = "";
     });
 
+});
+//O próximo bloco de código é responsável por limpar e ocultar a interface do chat quando o botão "Limpar Chat" é clicado.
+cleanChat.addEventListener("click", () => {
+  const chatOutput = document.getElementById("chat-output");
+  chatOutput.innerHTML = ""; 
+  chatOutput.classList.add("hidden"); 
+  perguntaInput.value = ""; 
 });
 
 /**
@@ -116,4 +124,4 @@ function adicionarMensagem(texto, tipo) {
   chatOutput.scrollTop = chatOutput.scrollHeight;
 
   return msg;
-}
+};
