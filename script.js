@@ -33,6 +33,13 @@ document.addEventListener("DOMContentLoaded", () => {
     // Limpa o input
     perguntaInput.value = "";
   });
+  cleanChat.addEventListener("click", () => {
+    const chatOutput = document.getElementById("chat-output");
+    chatOutput.innerHTML = ""; // Limpa o conteúdo do chat
+    chatOutput.classList.add("hidden"); // Oculta o chat
+    document.getElementById("pergunta").value = ""; // Limpa o input de pergunta
+});
+  });
 
     cleanChat.addEventListener("click", () => {
     const chatOutput = document.getElementById("chat-output");
