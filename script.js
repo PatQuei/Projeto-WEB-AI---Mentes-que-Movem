@@ -6,6 +6,9 @@ document.addEventListener("DOMContentLoaded", () => {
   const chatOutput = document.getElementById("chat-output");
   const cleanChat = document.getElementById("clean");
 
+//O próximo bloco de código é responsável por limpar e ocultar a interface do chat quando o botão "Limpar Chat" é clicado.
+
+
   form.addEventListener("submit", async (event) => {
     event.preventDefault();
     chatOutput.classList.remove("hidden");
@@ -30,7 +33,17 @@ document.addEventListener("DOMContentLoaded", () => {
     // Limpa o input
     perguntaInput.value = "";
   });
+
+    cleanChat.addEventListener("click", () => {
+    const chatOutput = document.getElementById("chat-output");
+    chatOutput.innerHTML = ""; // Limpa o conteúdo do chat
+    chatOutput.classList.add("hidden"); // Oculta o chat
+    document.getElementById("pergunta").value = ""; // Limpa o input de pergunta
 });
+});
+
+
+
 
 // Função para adicionar mensagens ao chat
 function adicionarMensagem(texto, tipo) {
@@ -46,7 +59,7 @@ function adicionarMensagem(texto, tipo) {
   chatOutput.scrollTop = chatOutput.scrollHeight;
 
   return { container: msgContainer, element: msg };
-}
+};
 
 // Função para adicionar o botão de cópia **apenas após a resposta final**
 function adicionarBotaoCopiar(container, texto) {
@@ -122,4 +135,4 @@ function adicionarMensagem(texto, tipo) {
   chatOutput.scrollTop = chatOutput.scrollHeight;
 
   return msg;
-}
+};
