@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const chatOutput = document.getElementById("chat-output");
   const cleanChat = document.getElementById("clean");
 
-//O próximo bloco de código é responsável por limpar e ocultar a interface do chat quando o botão "Limpar Chat" é clicado.
+
 
 
   form.addEventListener("submit", async (event) => {
@@ -33,22 +33,14 @@ document.addEventListener("DOMContentLoaded", () => {
     // Limpa o input
     perguntaInput.value = "";
   });
-  cleanChat.addEventListener("click", () => {
-    const chatOutput = document.getElementById("chat-output");
-    chatOutput.innerHTML = ""; // Limpa o conteúdo do chat
-    chatOutput.classList.add("hidden"); // Oculta o chat
-    document.getElementById("pergunta").value = ""; // Limpa o input de pergunta
-});
-  });
-
+  //O próximo bloco de código é responsável por limpar e ocultar a interface do chat quando o botão "Limpar Chat" é clicado.
     cleanChat.addEventListener("click", () => {
-    const chatOutput = document.getElementById("chat-output");
-    chatOutput.innerHTML = ""; // Limpa o conteúdo do chat
-    chatOutput.classList.add("hidden"); // Oculta o chat
-    document.getElementById("pergunta").value = ""; // Limpa o input de pergunta
-});
-});
-
+      const chatOutput = document.getElementById("chat-output");
+      chatOutput.innerHTML = ""; 
+      chatOutput.classList.add("hidden"); 
+      perguntaInput.value = ""; 
+    });
+  });
 
 
 
@@ -126,20 +118,4 @@ async function requisicaoAPI(apiKey, prompt, { container, element }) {
   }
 }
 
-/**
- * Adiciona mensagem ao chat
- */
-function adicionarMensagem(texto, tipo) {
-  const chatOutput = document.getElementById("chat-output");
-  const msg = document.createElement("div");
 
-  msg.classList.add(tipo === "usuario" ? "mensagem-usuario" : "mensagem-ia");
-  msg.textContent = texto;
-
-  chatOutput.appendChild(msg);
-
-  // Rola para o final do chat
-  chatOutput.scrollTop = chatOutput.scrollHeight;
-
-  return msg;
-};
