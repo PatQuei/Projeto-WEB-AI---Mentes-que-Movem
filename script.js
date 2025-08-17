@@ -1,10 +1,9 @@
-
 document.addEventListener("DOMContentLoaded", () => {
   const form = document.querySelector("form");
   const apiKeyInput = document.getElementById("ikey");
   const perguntaInput = document.getElementById("pergunta");
   const chatOutput = document.getElementById("chat-output");
-  const cleanChat = document.getElementById("clean");
+  const cleanChat = document.querySelector('button[type="clean"]');
 
   form.addEventListener("submit", async (event) => {
     event.preventDefault();
@@ -14,48 +13,41 @@ document.addEventListener("DOMContentLoaded", () => {
     const pergunta = perguntaInput.value.trim();
 
     if (!apiKey || !pergunta) {
-      alert("Por favor, preencha todos os campos.");
+      alert("Por favor, preencha a API Key e a sua pergunta.");
       return;
     }
 
-    // Adiciona mensagem do usuário no chat
     adicionarMensagem(pergunta, "usuario");
-
-    // Adiciona "Pensando..." como placeholder
     const { container, element } = adicionarMensagem("Pensando...", "ia");
-
-    // Chama a API e só depois adiciona o botão de cópia
     await requisicaoAPI(apiKey, pergunta, { container, element });
-
-    // Limpa o input
     perguntaInput.value = "";
   });
-  cleanChat.addEventListener("click", () => {
-    const chatOutput = document.getElementById("chat-output");
-    chatOutput.innerHTML = ""; // Limpa o conteúdo do chat
-    chatOutput.classList.add("hidden"); // Oculta o chat
-    document.getElementById("pergunta").value = ""; // Limpa o input de pergunta
-});
+
+  cleanChat.addEventListener("click", (event) => {
+    event.preventDefault();
+    chatOutput.innerHTML = "";
+    chatOutput.classList.add("hidden");
+    perguntaInput.value = "";
+  });
 });
 
-// Função para adicionar mensagens ao chat
 function adicionarMensagem(texto, tipo) {
   const chatOutput = document.getElementById("chat-output");
   const msgContainer = document.createElement("div");
   msgContainer.classList.add(tipo === "usuario" ? "mensagem-usuario" : "mensagem-ia");
 
-  const msg = document.createElement("div");
-  msg.textContent = texto;
-  msgContainer.appendChild(msg);
+  const msgElement = document.createElement("p");
+  msgElement.textContent = texto;
+  msgContainer.appendChild(msgElement);
 
   chatOutput.appendChild(msgContainer);
   chatOutput.scrollTop = chatOutput.scrollHeight;
 
-  return { container: msgContainer, element: msg };
+  return { container: msgContainer, element: msgElement };
 }
 
-// Função para adicionar o botão de cópia **apenas após a resposta final**
-function adicionarBotaoCopiar(container, texto) {
+// Pequena mudança: agora esta função anexa o botão ao elemento que passarmos
+function adicionarBotaoCopiar(elementoPai, texto) {
   const copyBtn = document.createElement("button");
   copyBtn.innerHTML = "Copiar resposta";
   copyBtn.classList.add("copy-btn");
@@ -64,31 +56,35 @@ function adicionarBotaoCopiar(container, texto) {
   copyBtn.addEventListener("click", () => {
     navigator.clipboard.writeText(texto)
       .then(() => {
-        copyBtn.innerHTML = " Copiado!";
-        setTimeout(() => copyBtn.innerHTML = "Copiar resposta", 2000);
-      })
-      .catch(() => {
-        copyBtn.innerHTML = "Erro ao copiar";
+        copyBtn.innerHTML = "Copiado!";
         setTimeout(() => copyBtn.innerHTML = "Copiar resposta", 2000);
       });
   });
   
-  container.appendChild(copyBtn);
+  elementoPai.appendChild(copyBtn);
 }
 
-// Função que chama a API do Gemini e atualiza a resposta
+// Pequena mudança: agora esta função anexa o botão ao elemento que passarmos
+function adicionarBotaoLike(elementoPai) {
+    const likeButton = document.createElement('button');
+    likeButton.classList.add('like-btn');
+    likeButton.innerText = '👍';
+    likeButton.title = 'Gostei da resposta';
+
+    likeButton.addEventListener('click', () => {
+        likeButton.classList.add('liked');
+        likeButton.disabled = true;
+    });
+
+    elementoPai.appendChild(likeButton);
+}
+
+// --- FUNÇÃO REQUISICAOAPI ATUALIZADA ---
 async function requisicaoAPI(apiKey, prompt, { container, element }) {
-  const URL_BASE = "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent";
+  const URL_BASE = "https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-latest:generateContent";
   const URL_FINAL = `${URL_BASE}?key=${apiKey}`;
 
-  const objetoParaEnviar = {
-    contents: [
-      {
-        parts: [{ text: prompt }],
-      },
-    ],
-  };
-
+  const objetoParaEnviar = { contents: [{ parts: [{ text: prompt }] }] };
   const parametros = {
     method: "POST",
     headers: { "Content-Type": "application/json" },
@@ -97,35 +93,34 @@ async function requisicaoAPI(apiKey, prompt, { container, element }) {
 
   try {
     const resposta = await fetch(URL_FINAL, parametros);
+    if (!resposta.ok) {
+        const errorData = await resposta.json();
+        throw new Error(errorData.error.message);
+    }
     const dadosDaIA = await resposta.json();
 
     if (dadosDaIA?.candidates?.[0]?.content?.parts?.[0]?.text) {
       const respostaCompleta = dadosDaIA.candidates[0].content.parts[0].text;
-      element.textContent = respostaCompleta; // Atualiza o texto
-      adicionarBotaoCopiar(container, respostaCompleta); // Adiciona botão **só aqui**
+      
+      element.innerHTML = respostaCompleta; 
+      
+      // --- MUDANÇA PRINCIPAL AQUI ---
+      // 1. Criamos um container flex para os botões
+      const botoesContainer = document.createElement('div');
+      botoesContainer.className = 'botoes-container';
+
+      // 2. Adicionamos os botões DENTRO desse novo container
+      adicionarBotaoCopiar(botoesContainer, respostaCompleta);
+      adicionarBotaoLike(botoesContainer);
+
+      // 3. Adicionamos o container dos botões à mensagem principal
+      container.appendChild(botoesContainer);
+
     } else {
       element.textContent = "❌ Não foi possível gerar uma resposta.";
     }
   } catch (error) {
     console.error("Erro na API:", error);
-    element.textContent = "❌ Erro na conexão com a API.";
+    element.textContent = `❌ Erro na API: ${error.message}`;
   }
-}
-
-/**
- * Adiciona mensagem ao chat
- */
-function adicionarMensagem(texto, tipo) {
-  const chatOutput = document.getElementById("chat-output");
-  const msg = document.createElement("div");
-
-  msg.classList.add(tipo === "usuario" ? "mensagem-usuario" : "mensagem-ia");
-  msg.textContent = texto;
-
-  chatOutput.appendChild(msg);
-
-  // Rola para o final do chat
-  chatOutput.scrollTop = chatOutput.scrollHeight;
-
-  return msg;
 }

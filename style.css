@@ -62,40 +62,25 @@ body {
   width: 100%;
 }
 
-/* Mensagem da IA */
+/* Mensagem da IA --- MODIFICADO PARA FLEXBOX */
 .mensagem-ia {
   background-color: #f9f9f9;
   border: 1px solid #ddd;
   border-radius: 10px;
-  padding: 12px;
+  padding: 12px; /* Padding normalizado */
   text-align: left;
-  white-space: pre-line;
   font-size: 1rem;
   max-width: 80%;
   align-self: flex-start;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
-  position: relative;
+  /* Não precisamos mais de position: relative */
 }
 
-/* Botões de interação */
-.botoes-interacao {
-  display: flex;
-  justify-content: flex-end;
-  gap: 8px;
-  margin-bottom: 8px;
+/* O parágrafo dentro da mensagem da IA */
+.mensagem-ia p {
+    white-space: pre-line; /* Mantém as quebras de linha */
 }
 
-.botoes-interacao button {
-  background-color: transparent;
-  border: none;
-  font-size: 1.2rem;
-  cursor: pointer;
-  transition: transform 0.2s ease;
-}
-
-.botoes-interacao button:hover {
-  transform: scale(1.2);
-}
 .hidden {
   display: none;
 }
@@ -114,13 +99,12 @@ body {
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
 }
 
-/* Contêiner da pergunta */
-.pergunta-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 10px;
-  margin-top: 20px;
+/* --- NOVO CONTAINER PARA OS BOTÕES --- */
+.botoes-container {
+    display: flex;
+    justify-content: space-between; /* MÁGICA: Joga um item para cada lado */
+    align-items: center;
+    margin-top: 10px; /* Espaço entre o texto e os botões */
 }
 
 /* Botão de copiar */
@@ -135,7 +119,7 @@ body {
     transition: background 0.3s ease;
     height: 30px;
     width: fit-content;
-    margin-top: 8px;
+    /* margin-top removido, o container cuida disso */
 }
 .copy-btn:hover {
   background-color: #838383;
@@ -161,7 +145,7 @@ textarea::placeholder {
   color: #999;
 }
 
-/* Botão */
+/* Botão principal */
 button {
   width: 100%;
   max-width: 400px;
@@ -176,6 +160,36 @@ button {
 }
 button:hover {
   background-color: #45a049;
+}
+
+/* --- ESTILOS DO BOTÃO LIKE MODIFICADOS --- */
+.like-btn {
+  /* position: absolute; NÃO É MAIS NECESSÁRIO */
+  background: transparent;
+  border: none;
+  font-size: 1.5rem; /* Aumentei um pouco para melhor clique */
+  cursor: pointer;
+  
+  /* Resets para não herdar do botão geral */
+  width: auto;
+  max-width: none;
+  padding: 0;
+  
+  transition: transform 0.2s ease;
+}
+
+.like-btn:hover:not(:disabled) {
+  transform: scale(1.2);
+  background-color: transparent;
+}
+
+.like-btn.liked {
+  filter: saturate(2.5);
+}
+
+.like-btn:disabled {
+  cursor: not-allowed;
+  opacity: 0.8;
 }
 
 /* Responsividade */
